@@ -1,0 +1,1 @@
+onmessage = (msg) => { postMessage('pong'); };
