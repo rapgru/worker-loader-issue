@@ -1,34 +1,21 @@
-# worker-loader-bug
+# worker-loader-issue
 
-## Project setup
-```
-npm install
-```
+## Steps to reproduce
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+1. `npm install`
+2. `npm run serve`
+3. Check output in developer console - shows `pong` from web worker
+4. Stop development server
+5. Change Message in `src/example_worker.js` to something other than `pong`
+6. `npm run serve`
+7. Output in developer console still shows `pong`, and not the new message
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Essentially the js delivered to the client is the one webpack processed in step 2.
 
-### Run your tests
-```
-npm run test
-```
+## Inspect Webpack Config
 
-### Lints and fixes files
-```
-npm run lint
-```
+`vue inspect`
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Project Setup
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Created via Vue Cli 3, with router, vuex, babel, mocha, scss. (`vue create`)
